@@ -20,7 +20,8 @@ function App() {
           <Route path="/" element={<Navigate replace to="cats" />} />
           <Route path="cats" element={<PhotoList />} />
           <Route path="dogs" element={<PhotoList />} />
-          <Route path="computers" element={<PhotoList/> } />
+          <Route path="computers" element={<PhotoList />} />
+          <Route path="search/:query" element={<PhotoList />} />
         </Routes>
       </div>
     </>
