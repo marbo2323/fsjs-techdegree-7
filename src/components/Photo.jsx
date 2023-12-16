@@ -10,3 +10,5 @@ const Photo = () => {
     </li>
   );
 };
+
+export default Photo;
