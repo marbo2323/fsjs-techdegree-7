@@ -1,14 +1,28 @@
-import React from "react";
-import Photo from "./Photo";
+import React, { useEffect } from "react";
 
-const PhotoList = () => {
+import Photo from "./Photo";
+import NotFound from "./NotFound";
+
+const PhotoList = ({loading, photos }) => {
+  const photoList = photos
+    .map(photo => <Photo key={photo.id} photo={photo} />);
+  
   return (
     <div className="photo-container">
-      <h2>Results</h2>
-      <ul>
-        <Photo />
-      </ul>
+      {
+        loading ?
+          <p>Loading...</p> :          
+          photoList.length > 0 ?
+            <>
+              <h2>Results</h2>
+              <ul>
+                  {photoList}
+              </ul>
+            </> :
+            <NotFound />
+      }
     </div>
+    
   );
 };
 
