@@ -1,8 +1,26 @@
-# React + Vite
+# React + Vite Gallery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React gallery app built using Vite and React. With the app, it is possible to search for images using the Flickr API.
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project 7 for full-stack JavaScript developer Teamtreehouse's technical degree program.
+
+## Getting Started
+
+### Installation
+
+- This application requires Node.js. If you don't have Node.js installed, install it from [nodejs downloads](https://nodejs.org/en/download/current) by selecting the appropriate version for your operating system.
+- From your command line or terminal, install all dependencies using `npm install` command. 
+- The project uses the Flickr API. You need an api key to use this app. This requires a registered [Flickr](https://www.flickr.com) account and a generated API key.
+- Create a config.js file in the root folder of the project and set the apiKey variable there. The content of the config.js file is similar to the following example.
+    ```JavaScript
+    const apiKey = "Your API key";
+    export default apiKey;
+    ```
+
+## Run App
+
+Use `npm run dev` to start the application on localhost:5173.
+
+
