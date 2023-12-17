@@ -12,7 +12,7 @@ Project 7 for full-stack JavaScript developer Teamtreehouse's technical degree p
 
 - This application requires Node.js. If you don't have Node.js installed, install it from [nodejs downloads](https://nodejs.org/en/download/current) by selecting the appropriate version for your operating system.
 - From your command line or terminal, install all dependencies using `npm install` command. 
-- The project uses the Flickr API. You need an api key to use this app. This requires a registered [Flickr](https://www.flickr.com) account and a generated API key.
+- The project uses the Flickr API. You need an API key to use this app. This requires a registered [Flickr](https://www.flickr.com) account and a generated API key.
 - Create a config.js file in the root folder of the project and set the apiKey variable there. The content of the config.js file is similar to the following example.
     ```JavaScript
     const apiKey = "Your API key";
