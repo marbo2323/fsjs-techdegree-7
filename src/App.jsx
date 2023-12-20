@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate,useParams } from "react-router-dom";
 import axios from "axios";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -11,7 +11,7 @@ import PhotoList from './components/PhotoList';
 
 function App() {
   const [photos, setPhotos] = useState([]);
-  const [query, setQuery] = useState("cats");
+  const [query, setQuery] = useState();
   const [loading, setLoading] = useState(true);
 
   const fetchData = (isActiveFetch) => {
@@ -43,13 +43,32 @@ function App() {
   }
 
   useEffect(() => {
-    let activeFetch = true;
-    fetchData(activeFetch);
+    let isActiveFetch = true;
+    fetchData(isActiveFetch);
     
     return () => {
-      activeFetch = false;
+      isActiveFetch = false;
     };
   }, [query]);
+
+  // rendering static routes
+  const StaticRoutePhotos = ({ topic }) => {
+    useEffect(() => {
+      setQuery(topic);
+    },[topic]);
+    
+    return <PhotoList loading={loading} photos={photos} />;
+  }
+
+  // rendering seach
+  const SearchPhotos = () => {
+    const { query } = useParams();
+      useEffect(() => {
+      setQuery(query);
+      },[query]);
+      
+      return <PhotoList loading={loading} photos={photos} />;
+  }
 
   return (
     <>
@@ -57,11 +76,11 @@ function App() {
         <Search setSearchText={ setQuery } />
         <Nav />
         <Routes>
-          <Route index element={<Navigate replace to="cats" />} />
-          <Route path="cats" element={<PhotoList  loading={loading} photos={ photos}/>} />
-          <Route path="dogs" element={<PhotoList  loading={loading} photos={ photos}/>} />
-          <Route path="computers" element={<PhotoList loading={loading} photos={ photos}/>} />
-          <Route path="search/:query" element={<PhotoList loading={loading} photos={photos} />} />
+          <Route path="/" element={<Navigate replace to="cats" />}/>
+          <Route path="cats" element={<StaticRoutePhotos topic="cats"/>} />
+          <Route path="dogs" element={<StaticRoutePhotos topic="dogs"/>} />
+          <Route path="computers" element={<StaticRoutePhotos topic="computers"/>} />
+          <Route path="search/:query" element={<SearchPhotos />} />
           <Route path="*" element={<p>Page Not Found</p>}/>
         </Routes>
       </div>

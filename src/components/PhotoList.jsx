@@ -11,7 +11,7 @@ const PhotoList = ({loading, photos }) => {
     <div className="photo-container">
       {
         loading ?
-          <p>Loading...</p> :          
+          <h3>Loading...</h3> :          
           photoList.length > 0 ?
             <>
               <h2>Results</h2>

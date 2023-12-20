@@ -10,7 +10,6 @@ const Search = ({setSearchText}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = searchText.current.value;
-    setSearchText(query);
     e.currentTarget.reset();
     const path = `search/${query}`;
     navigate(path);
